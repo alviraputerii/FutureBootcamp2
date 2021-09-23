@@ -11,14 +11,14 @@ public class CustomDriver implements DriverSource {
 
     @Override
     public WebDriver newDriver() {
-        if (System.getProperty("driver").equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            return new FirefoxDriver();
+        if (System.getProperty("driver").equalsIgnoreCase("chrome")) {
+            WebDriverManager.chromedriver().setup();
+            return new ChromeDriver();
         } else {
             FirefoxOptions opt = new FirefoxOptions();
             opt.addArguments("--private");
-            WebDriverManager.chromedriver().setup();
-            return new ChromeDriver(opt);
+            WebDriverManager.firefoxdriver().setup();
+            return new FirefoxDriver(opt);
         }
     }
 
